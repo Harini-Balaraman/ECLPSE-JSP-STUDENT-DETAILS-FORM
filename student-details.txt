@@ -1,0 +1,57 @@
+HTML
+----
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="prgmjsp.jsp" method="get">
+	Name:
+	<input type="text" name="name" placeholder="jhon"><br>
+	Department:
+	<input type="text" name="d6ept" placeholder="IT"><br>
+	Year
+	<input type="text" name="year" placeholder="Enter your year"><br>
+	Gender:
+	<input type="radio" name="gender" value="male">Male
+	<input type="radio" name="gender" value="female">Female <br>
+	languages known:
+	<input type="checkbox" name="lang" value="C">C
+	<input type="checkbox" name="lang" value="C++">C++
+	<input type="checkbox" name="lang" value="Java">Java
+	<input type="checkbox" name="lang" value="Python">Python
+	<br>
+	<input type="submit" value="submit">
+</form>
+</body>
+</html>
+
+JSP
+----
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+String str1=request.getParameter("name");
+String str2=request.getParameter("dept");
+String str3=request.getParameter("year");
+String str4=request.getParameter("gender");
+String[] lang=request.getParameterValues("lang");
+%>
+<p> name:<%=str1%></p>
+<p> dept:<%=str2%></p>
+<p> year:<%=str3%></p>
+<p> gender:<%=str4%></p>
+<p> programming languages:<%=java.util.Arrays.toString(lang) %> </p>
+
+</body>
+</html>
